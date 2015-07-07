@@ -38,6 +38,7 @@ def report(counts):
 
 def jackpottogram(counts):
     fig1 = plt.figure() #cumulative histogram
+    p = PdfPages(args.o + "_jckptogram.pdf")
     counts.reverse() #make into ascending
     cumulvals = []
     cumulvals.append(counts[0])
@@ -64,7 +65,6 @@ def jackpottogram(counts):
     plt.annotate('Slope = 1', xy=(x_range[n-300000], x_range[n-300000]), 
         xytext=(x_range[n-1]-300000, x_range[n-1]+100000), arrowprops=dict(facecolor='black', shrink=0.05),
         horizontalalignment='left', fontsize='8')
-    p = PdfPages(args.o + "_jckptogram.pdf")
     p.savefig(fig1)
     fig2 = plt.figure() #pie chart
     counts.reverse() #make descending
